@@ -19,10 +19,12 @@ public class RomiGyro {
   private double m_angleXOffset;
   private double m_angleYOffset;
   private double m_angleZOffset;
+  private SimDevice gyroSimDevice;
 
   /** Create a new RomiGyro. */
   public RomiGyro() {
-    SimDevice gyroSimDevice = SimDevice.create("Gyro:RomiGyro");
+    gyroSimDevice = SimDevice.create("Gyro:RomiGyro1");
+    //System.out.println(gyroSimDevice);
     if (gyroSimDevice != null) {
       gyroSimDevice.createBoolean("init", Direction.kOutput, true);
       m_simRateX = gyroSimDevice.createDouble("rate_x", Direction.kInput, 0.0);
